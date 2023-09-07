@@ -1,0 +1,25 @@
+# Ragionamento Automatico e Uso degli Strumenti (ART)
+
+import { Callout, FileTree } from 'nextra-theme-docs'
+import {Screenshot} from 'components/screenshot'
+import ART from '../../img/ART.png'
+import ART2 from '../../img/ART2.png'
+
+Combinare il prompting di CoT e l'uso degli strumenti in maniera intercalata si è dimostrato un approccio forte e robusto per affrontare molti compiti con i LLMs. Questi approcci richiedono tipicamente la creazione manuale di dimostrazioni specifiche del compito e un intreccio accuratamente programmato di generazioni del modello con l'uso dello strumento. [Paranjape et al., (2023)](https://arxiv.org/abs/2303.09014) propone un nuovo framework che utilizza un LLM congelato per generare automaticamente passaggi di ragionamento intermedi sotto forma di programma.
+
+ART funziona come segue:
+- dato un nuovo compito, seleziona dimostrazioni di ragionamento e uso dello strumento multi-step da una libreria di compiti
+- al momento del test, interrompe la generazione ogni volta che vengono chiamati strumenti esterni e integra il loro output prima di riprendere la generazione
+
+ART incoraggia il modello a generalizzare dalle dimostrazioni per scomporre un nuovo compito e
+utilizzare strumenti nei posti appropriati, in un modo zero-shot. Inoltre, ART è estensibile in quanto consente anche agli umani di correggere gli errori nei passaggi di ragionamento o di aggiungere nuovi strumenti semplicemente aggiornando le librerie di compiti e strumenti. Il processo è dimostrato di seguito:
+
+<Screenshot src={ART} alt="ART" />
+Fonte immagine: [Paranjape et al., (2023)](https://arxiv.org/abs/2303.09014)
+
+ART migliora notevolmente rispetto al prompting a pochi colpi e all'automatismo di CoT su compiti invisibili nei benchmark di BigBench e MMLU, e supera le prestazioni dei prompt di CoT creati a mano quando il feedback umano viene incorporato.
+
+Di seguito è presentata una tabella che dimostra le prestazioni di ART sui compiti di BigBench e MMLU:
+
+<Screenshot src={ART2} alt="ART2" />
+Fonte immagine: [Paranjape et al., (2023)](https://arxiv.org/abs/2303.09014)

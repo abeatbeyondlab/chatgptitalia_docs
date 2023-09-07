@@ -1,0 +1,31 @@
+# Documentation search bar
+
+You will have noticed that at the top right it is possible to activate a search bar which has innovative features from a search point of view.
+In fact, it is possible to search for information within this documentation, and obtain answers of different types all together.
+The search bar actually uses a prompt to process information from a vector database containing embedded vectors, knowledge of chatgpt, and Bing search.
+
+## Structure of the prompt used
+
+The prompt has a specific structure with certain parts that GPT-3 should pay attention to. Here's what it looks like:
+
+- **Context:** This section defines the context or topic being addressed. It will be used as a key reference by the inferential model to provide relevant answers.
+
+- **Bing search**: This section contains filtered results from a Bing search. They should be used in giving specific answers based on the information available through the network.
+
+- **Question:** This is the specific question that the AI needs to answer.
+
+- **Instructions:** This section gives CHATGPT specific instructions on how the response should be structured. There are three responses that CHATGPT must generate sequentially:
+
+    1. "**Search documentation as context**": The response must be based only on what is written in context.
+    2. "**Search documentation as context + chatgpt knowledge**": Your response should leverage both the context we provide and your prior knowledge of GPT-3. Also, it should include an example.
+    3. "**Bing Search**": The response should be a summary of relevant Bing search results, structured in a markdown list.
+
+## Results
+
+Once the instructions have been processed, CHATGPT generates three responses based on the given structure.
+Each answer has a title that corresponds to the three categories indicated in the instructions.
+
+## Why is this Structure Effective?
+
+Implementing this structure in the personalized prompt allows for greater effectiveness in providing specific, relevant answers and in a structured format that makes communication very clear.
+Additionally, the ability to search online resources through Bing further expands GPT-3's breadth of knowledge, giving you the ability to provide more current and relevant answers.

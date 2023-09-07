@@ -1,0 +1,32 @@
+# Cerca nella documentazione
+
+Avrai notato che in alto a destra è possibile attivare una barra di ricrce a che ha delle caratteristiche innovative dal punto di vista della ricerca. 
+E' infatti possibile  ricercare informazioni dentro questa documentazione, e ottenere risposte di diverso tipo tutte assieme.
+La barra di ricerca di fatto utilizza un prompt per rielaborare informazioni provenienti da un database vettoriale contenente vettori embedded, la conoscenza di chatgpt, e la ricerca su Bing.
+
+## Struttura del Prompt utilizzato
+
+Il prompt ha una struttura specifica con determinate parti a cui GPT-3 dovrebbe prestare attenzione. Ecco come appare:
+
+- **Contesto:** Questa sezione definisce il contesto o l'argomento affrontato. Sarà utilizzato come riferimento chiave dal modello inferenziale per fornire risposte pertinenti.
+
+- **Ricerca Bing**: Questa sezione contiene i risultati filtrati da una ricerca Bing. Vandono utilizzati nel dare risposte specifiche basate sull'informazione disponibile attraverso la rete.
+
+- **Domanda:** Questa è la domanda specifica sulla quale l'intelligenza artificiale deve rispondere.
+
+- **Istruzioni:** Questa sezione da a CHATGPT istruzioni specifiche su come dovrebbe essere strutturata la risposta. Ci sono tre risposte che CHATGPT deve generare in sequenza:
+
+    1. "**Ricerca in documentazione come contesto**": La risposta deve essere basata solo su quello che è scritto nel contesto.
+    2. "**Ricerca in documentazione come contesto + conoscenza chatgpt**": La risposta dovrebbe sfruttare sia il contesto da noi fornito che la conoscenza pregressa di GPT-3. Inoltre, dovrebbe includere un esempio.
+    3. "**Ricerca Bing**": la risposta dovrebbe essere una sintesi dei risultati di ricerca Bing pertinenti, strutturati in una lista di markdown.
+
+## Risultati
+
+Una volta processate le istruzioni, CHATGPT genera tre risposte sulla base della struttura data.
+Ogni risposta ha un titolo che corrisponde alle tre categorie indicate nelle istruzioni.
+
+## Perché Questa Struttura è Efficace?
+
+L'implementazione di questa struttura nel prompt personalizzato permette una maggiore efficacia nel fornire risposte specifiche, pertinenti e in un formato strutturato che rende la comunicazione molto chiara.
+Inoltre, la possibilità di ricercare nelle risorse online attraverso Bing amplifica ulteriormente la gamma di conoscenze di GPT-3, dando la possibilità di fornire risposte più attuali e pertinenti.
+
